@@ -133,6 +133,7 @@ code {
   border: 1px solid var(--border);
   border-radius: 8px;
   background-color: var(--code-bg); /* ใช้สีพื้นหลังการ์ดจาก index.css */
+  width: 95%;
 }
 
 .cart-item-img {
