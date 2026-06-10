@@ -100,9 +100,9 @@ code {
 
 .cart-container {
   color: var(--text-h);
-  padding: 1rem;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 0.5rem;
+  width: 100%;
+
 }
 
 .cart-title {
