@@ -6,13 +6,13 @@ function Dashboard() {
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">My Developer Portfolio</h1>
-      <p className="dashboard-subtitle">ยินดีต้อนรับเข้าสู่คลังโปรเจกต์ของฉัน เลือกชมเว็บด้านล่างได้เลยครับ</p>
+      <p className="dashboard-subtitle">ยินดีต้อนรับเข้าสู่คลังโปรเจกต์ของผม เลือกชมเว็บด้านล่างได้เลยครับ</p>
       
       <div className="dashboard-grid">
         <Link to="/shop" className="portfolio-card">
           <div className="card-badge status-done">Ready</div>
           <h2>Web 1: Shopping Web</h2>
-          <p>ระบบร้านค้าออนไลน์ ดึงข้อมูลสินค้าจาก Fake Store API, มีระบบตะกร้าสินค้า และหน้าแจกแจงรายละเอียดสินค้า</p>
+          <p>ระบบร้านค้าออนไลน์ ดึงข้อมูลสินค้าจาก Fake Store API, มีระบบตะกร้าสินค้า และหน้าแจกแจงรายละเอียดสินค้า แต่ซื้อจริงๆไม่ได้ครับ</p>
           <span className="card-link">ลองเข้าชมเว็บ →</span>
         </Link>
 
@@ -20,7 +20,7 @@ function Dashboard() {
           <Link to="/blog" className="portfolio-card">
             <div className="card-badge status-done" >Ready</div>
             <h2>Web 2: CRUD Blog Web</h2>
-            <p>Blog ที่ imprement ระบบ CRUD</p>
+            <p>Blog ที่ imprement ระบบ CRUD เอาไว้โพสนู้นนี่แบ่งกันอ่านได้ แต่ไม่มี authen ทำให้อาจจะเจอคนป่วยได้ครับ</p>
             <span className="card-link">ลองเข้าชมเว็บ →</span>
           </Link>
 
