@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Nordic Soft Clean Theme for Blog Home
+   ========================================================================== */
+
+
+.blog-home-container {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.blog-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.blog-hero h1 {
+  font-size: 2.5rem;
+  color: #0f172a; 
+  margin-bottom: 0.5rem;
+}
+
+.blog-hero p {
+  color: #475569;
+  font-size: 1.1rem;
+}
+
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.blog-card {
+  background: #ffffff; 
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.75rem;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+.blog-card:hover {
+  border-color: #0d9488;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.05);
+}
+
+.blog-card-date {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.blog-card-title {
+  font-size: 1.4rem;
+  color: #0f172a;
+  margin: 0.5rem 0;
+}
+
+.blog-card-desc {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.blog-card-link {
+  color: #0d9488;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.blog-create-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: #0d9488; 
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(13, 148, 136, 0.1);
+  transition: all 0.2s ease;
+}
+
+.blog-create-btn:hover {
+  background-color: #0f766e; 
+  box-shadow: 0 4px 6px rgba(13, 148, 136, 0.15);
+  transform: translateY(-1px);
+}
+
+.blog-create-btn:active {
+  transform: translateY(0);
+}
+
+
+.blog-delete-btn {
+  background-color: #fef2f2;
+  color: #ef4444; 
+  border: 1px solid #fee2e2;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.blog-delete-btn:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+.blog-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* ตกแต่งแท็ก Link ของคำว่าอ่านบทความต่อเพิ่มเติม */
+.blog-card-link {
+  color: #0d9488;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none; /* เอาขีดเส้นใต้ออกตอนปกติ */
+  transition: color 0.2s ease;
+}
+
+/* สไตล์แสดงผลเวลาผู้ใช้เอาเมาส์มาวางชี้ที่ปุ่มอ่านต่อ */
+.blog-card-link:hover {
+  color: #0f766e;
+  text-decoration: underline; /* เพิ่มขีดเส้นใต้ตอนเมาส์ชี้ */
+}

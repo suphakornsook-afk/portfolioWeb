@@ -1,0 +1,102 @@
+.create-post-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  text-align: left;
+}
+
+.form-header h2 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+}
+
+.form-header p {
+  color: #64748b;
+  margin: 0 0 2rem 0;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+/* ตกแต่งช่อง Input และ Textarea ให้ดูนุ่มนวลเรียบร้อย */
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #0f172a;
+  background-color: #f8fafc; /* พื้นหลังเทาอ่อนบางๆ */
+  transition: all 0.2s ease;
+}
+
+/* เอฟเฟกต์ตอนกดคลิกพิมช่องกรอกข้อมูล */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0d9488; /* เปลี่ยนเป็นสีฟ้าอมเขียว */
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ปุ่มยกเลิก */
+.btn-cancel {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+/* ปุ่มบันทึก */
+.btn-submit {
+  background-color: #0d9488;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(13, 148, 136, 0.1);
+  transition: all 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0f766e;
+  transform: translateY(-1px);
+}

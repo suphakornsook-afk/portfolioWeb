@@ -1,0 +1,336 @@
+.rpg-game-wrapper {
+  background-color: #1e1e24;
+  color: #fff;
+  position: absolute;  
+  top: 0;
+  left: 0;
+  width: 100vw;    
+  min-height: 100vh; 
+  
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.rpg-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f39c12;
+}
+
+/* หน้าจอเลือกตัวละคร */
+.class-cards-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.class-select-card {
+  background-color: #2c2c35;
+  border: 2px solid #444;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 340px; 
+  height: 600px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.class-avatar-img {
+  width: 100%;
+  height: 340px; /* 📐 ล็อกพื้นที่ความสูงของโซนโชว์ภาพ */
+  background-color: #1a1a20; 
+  border-radius: 6px;
+  overflow: hidden; 
+  display: flex;
+  align-items: center; /* จัดให้ตัวละครอยู่ตรงกลางแนวตั้ง */
+  justify-content: center; /* จัดให้ตัวละครอยู่ตรงกลางแนวนอน */
+}
+
+.class-avatar-img img {
+  width: 100%;
+  height: 100%;
+  
+  /* ✨ เปลี่ยนมาใช้ object-fit: cover เพื่อให้ภาพขยายเต็มพื้นที่กล่องเท่ากัน 
+     แต่ถ้าหากภาพโดนตัดหัวหรือเท้ามากเกินไป ให้สลับกลับไปใช้ contain 
+     แต่ล็อกความกว้างรูปภาพด้วย max-width แทนครับ */
+  object-fit: contain; 
+  max-width: 95%;  /* บล็อกไม่ให้ภาพแผ่กว้างจนล้นด้านข้าง */
+  max-height: 95%; /* บล็อกไม่ให้ภาพยาวค้ำหัวค้ำท้าย */
+}
+
+.class-select-card:hover {
+  transform: translateY(-5px);
+  border-color: #f39c12;
+}
+
+.class-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.select-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* หน้าจอสนามรบต่อสู้ (ถอดแบบตาม Mockup) */
+.battle-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f1c40f;
+}
+
+.battle-main-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.character-card {
+  background-color: #2a2a32;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+  text-align: center;
+}
+
+.avatar-placeholder {
+  background-color: #1a1a20;
+  height: 180px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 1px dashed #777;
+}
+
+.stat-line {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.hp-text {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.damage-box {
+  margin-top: 1rem;
+  background-color: #3a3a45;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #e74c3c;
+}
+
+/* กล่องลูกเต๋าตรงกลาง */
+.dice-control-zone {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dice-display {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.roll-dice-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.roll-dice-btn:hover {
+  background-color: #c0392b;
+}
+
+/* src/pages/rpg/RpgGame.css */
+
+/* 1. จัด Layout รวมของสนามรบให้แผ่กว้างแบบพอดี ไม่กระจัดกระจาย */
+.battle-main-layout {
+  display: flex;
+  justify-content: center; /* 👈 เปลี่ยนจาก space-between เป็น center เพื่อดึงทุกกล่องมาเกาะกลุ่มตรงกลาง */
+  align-items: stretch;    /* ยืดความสูงกล่องซ้ายขวาให้เท่ากันโดยอัตโนมัติ */
+  gap: 2.5rem;             /* ระยะห่างช่องไฟระหว่างกล่องผู้เล่น-ลูกเต๋า-ศัตรู */
+  margin-top: 1.5rem;
+}
+
+/* 2. การ์ดตัวละครฝั่งผู้เล่น และ ศัตรู */
+.character-card {
+  background-color: #2c2c35; /* 🎨 ย้อมเป็นสีมืดสีเดียวกับการ์ดหน้าเลือกตัวละคร */
+  border: 2px solid #444;    /* เส้นขอบคุมโทนเดียวกัน */
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 280px;              /* ล็อกความกว้างกล่องให้เท่ากัน */
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 3. 🔥 จุดตาย: กล่องครอบรูปภาพในสนามรบ (ห้ามให้รูปหลุดเฟรมเด็ดขาด) */
+.avatar-placeholder {
+  width: 100%;
+  height: 280px;            /* 📐 กำหนดความสูงพื้นที่โชว์ตัวละครในสนามรบ */
+  background-color: #1a1a20; /* ทำพื้นหลังสีเข้มสี่เหลี่ยมรองรับรูป */
+  border-radius: 6px;
+  display: flex;
+  align-items: center;      /* จัดรูปกึ่งกลางแนวตั้ง */
+  justify-content: center;   /* จัดรูปกึ่งกลางแนวนอน */
+  margin-bottom: 1rem;
+  border: 1px solid #444;
+  overflow: hidden;         /* บล็อกส่วนเกินไม่ให้หลุดกรอบ */
+}
+
+/* 4. ✨ ดัดนิสัยรูปภาพตัวละครดิบในสนามรบไม่ให้ล้น */
+.rpg-render-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* บีบสเกลภาพให้แสดงครบถ้วน ไม่บิดเบี้ยว ไม่ตัดขาด */
+  max-width: 95%;
+  max-height: 95%;
+}
+
+/* 5. ปรับกล่องลูกเต๋าและปุ่มตรงกลางให้สมดุลบาลานซ์ */
+/* .dice-control-zone { */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center;   จัดให้อยู่กึ่งกลางหน้าจอแนวดิ่ง */ 
+  /* width: 220px; */
+/* } */
+
+/* โซนหน้าต่างล็อกอินเกม RPG */
+.auth-screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* เพิ่มความสูงพื้นที่ตั้งหลัก */
+  width: 100%;
+}
+
+.auth-card {
+  background-color: #2c2c35;
+  border: 2px solid #444;
+  border-radius: 12px;
+  padding: 3.5rem 2.5rem; /* ขยายช่องไฟด้านในให้แผ่ออกดูสบายตา */
+  width: 420px;           /* ปรับขนาดความกว้างให้โมเดิร์นขึ้น */
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-sizing: border-box; /* บล็อกไม่ให้แพดดิ้งดันกล่องเบี้ยว */
+}
+
+.auth-game-logo {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+.auth-title {
+  color: #f1c40f;
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.auth-subtitle {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+/* ปุ่ม Google Login ที่ถูกสเกลให้สวยงามตามมาตรฐานสากล */
+.google-login-btn {
+  background-color: #ffffff;
+  color: #1f1f1f;
+  border: none;
+  padding: 0.85rem 1.5rem; /* เพิ่มความหนาหนุ่มให้ตัวปุ่มกดง่าย */
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;             /* บังคับแผ่กว้างเต็มพื้นที่การ์ด */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;               /* เว้นช่องไฟระหว่างโลโก้ตัว G กับข้อความ */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  margin-top: 1rem;
+}
+
+.google-login-btn:hover {
+  background-color: #f7f7f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.google-login-btn img {
+  width: 24px;   /* ปรับขนาดโลโก้ให้สมดุลกับตัวหนังสือ */
+  height: 24px;
+  object-fit: contain;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+
+.arena-leaderboard-zone {
+  background-color: #2c2c35;
+  border: 2px solid #e74c3c;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 550px;
+  margin: 1.5rem auto;
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.2);
+}
+.arena-leaderboard-hd { color: #f1c40f; margin-top: 0; margin-bottom: 1rem; font-size: 1.4rem; text-align: center; }
+.arena-sub-table { width: 100%; border-collapse: collapse; background-color: #1a1a20; border-radius: 6px; overflow: hidden; }
+.arena-sub-table th { background-color: #3e3e4a; color: #f1c40f; padding: 10px; font-size: 0.95rem; }
+.arena-sub-table td { padding: 10px; border-bottom: 1px solid #2c2c35; font-size: 0.9rem; text-align: center; }
+.arena-top1 td { background-color: rgba(241, 196, 15, 0.08); color: #f1c40f; font-weight: bold; }
